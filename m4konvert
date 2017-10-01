@@ -1,0 +1,20 @@
+#! /usr/bin/env sh
+
+if [ "$1" != "-f" ]; then
+        exit 1
+fi
+if [ -z "$2" ]; then
+        exit 1
+fi
+if [ ! -f "$2" ]; then
+        exit 1
+fi
+
+type=$(echo "$2"  |awk -F . '{print $NF}')
+bname=$(basename "$2" "$type")
+
+if [ "$type" = "mp4" ]; then
+        exit 0
+fi
+
+ffmpeg -i "$2" -c:v libx264 "$bname.mp4"
