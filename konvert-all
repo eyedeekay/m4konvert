@@ -1,5 +1,5 @@
 #! /usr/bin/env sh
-export formats="webm mkv flv vob ogg ogv drc gif gifv mng avi mov qt wmv yuv
+export formats="webm mkv flv vob ogg ogv drc gif gifv mng avi mov qt wmv yuv mp4
 rm rmvb asf amv m4v mpg mp2 mpeg mpe mpv m2v svi 3gp 3g2 roq nsv f4p f4a f4b"
 
 for format in $formats; do
