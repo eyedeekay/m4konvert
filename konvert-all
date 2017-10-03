@@ -4,6 +4,6 @@ rm rmvb asf amv m4v mpg mp2 mpeg mpe mpv m2v svi 3gp 3g2 roq nsv f4p f4a f4b"
 
 for format in $formats; do
         for file in $(find -name "*.$format"); do
-                m4konvert "$file"
+                m4konvert -f "$file"
         done
 done

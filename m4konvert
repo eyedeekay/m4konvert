@@ -17,4 +17,6 @@ if [ "$type" = "mp4" ]; then
         exit 0
 fi
 
-ffmpeg -i "$2" -c:v libx264 "$bname.mp4"
+echo "ffmpeg -i $2 -c:v libx264 $bname.mp4 && rm -rf $2"
+
+ffmpeg -i "$2" -c:v libx264 "$bname.mp4" && rm -rf "$2"
