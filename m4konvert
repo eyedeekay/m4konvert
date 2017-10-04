@@ -1,22 +1,25 @@
 #! /usr/bin/env sh
 
+echo "$@"
+
 if [ "$1" != "-f" ]; then
+        echo "wrong option"
         exit 1
 fi
 if [ -z "$2" ]; then
+        echo "wrong path"
         exit 1
 fi
 if [ ! -f "$2" ]; then
+        echo "file not found"
         exit 1
 fi
 
 type=$(echo "$2"  |awk -F . '{print $NF}')
 bname=$(basename "$2" ".$type")
 
-if [ "$type" = "mp4" ]; then
-        exit 0
-fi
+cp "$2" "$2.bak"
 
 echo "ffmpeg -i $2 -c:v libx264 $bname.mp4 "
 
-ffmpeg -i "$2" -c:v libx264 "$bname.mp4"
+ffmpeg -i "$2.bak" -c:v libx264 "$bname.mp4" && rm -f "$2.bak"
