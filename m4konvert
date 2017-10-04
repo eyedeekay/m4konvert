@@ -22,4 +22,4 @@ cp "$2" "$bname.bak.$type"
 
 echo "ffmpeg -i $2 -c:v libx264 $bname.mp4 "
 
-ffmpeg -i "$bname.bak.$type" -c:v libx264 "$bname.mp4" && rm -f "$2.bak"
+ffmpeg -i "$bname.bak.$type" -c:v libx264 "$bname.mp4" && rm -f "$bname.bak.$type"
