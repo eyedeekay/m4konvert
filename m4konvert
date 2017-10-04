@@ -18,7 +18,7 @@ fi
 type=$(echo "$2"  |awk -F . '{print $NF}')
 bname=$(basename "$2" ".$type")
 
-cp "$2" "$2.bak"
+cp "$2" "$bname.bak.$type"
 
 echo "ffmpeg -i $2 -c:v libx264 $bname.mp4 "
 
